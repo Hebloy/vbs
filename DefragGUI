@@ -1,0 +1,15 @@
+DIM msg
+DIM title
+msg = "DO NOT defrag SSD drives using this utility as that will reduce its lifetime." + vbCrLf + "ONLY defrag mechanical Hard Disk." + vbCrLf + "Click CANCEL If you are unsure of the disk type on this computer"
+title = "Disk defragmentation utility"
+
+
+x = msgbox(msg,vbOKCancel+vbExclamation+vbDefaultButton2, title)
+
+
+If x = vbOK then
+  Dim objShell
+  Set objShell = WScript.CreateObject( "WScript.Shell" )
+  objShell.Run("%windir%\sysnative\dfrgui.exe")
+  Set objShell = Nothing
+End If
